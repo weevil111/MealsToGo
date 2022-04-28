@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, StatusBar, FlatList } from "react-native";
+import { SafeAreaView, StatusBar } from "react-native";
 import { Searchbar } from "react-native-paper";
 import styled from "styled-components/native";
 import { Spacer } from "../../../components/spacer/spacer.component";
