@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Pressable } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { ActivityIndicator, Colors } from "react-native-paper";
 import styled from "styled-components/native";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -37,11 +37,15 @@ export const RestaurantsScreen = ({ navigation }) => {
       <RestaurantList
         data={restaurants}
         renderItem={({ item }) => (
-          <Pressable onPress={() => navigation.navigate("RestaurantDetail")}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("RestaurantDetail", { restaurant: item })
+            }
+          >
             <Spacer position="bottom" size="large">
               <RestaurantInfoCard restaurant={item} />
             </Spacer>
-          </Pressable>
+          </TouchableOpacity>
         )}
         keyExtractor={(item) => item.name}
       />
