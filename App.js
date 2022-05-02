@@ -9,8 +9,8 @@ import { useFonts } from "expo-font";
 import { Oswald_400Regular } from "@expo-google-fonts/oswald";
 import { Lato_400Regular } from "@expo-google-fonts/lato";
 import { LocationContextProvider } from "./src/services/location/location.context";
+import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 import { Navigation } from "./src/infrastructure/navigation";
-import { FavoritesContextProvider } from "./src/services/favorites/favorites.context";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Oswald_400Regular, Lato_400Regular });
@@ -20,13 +20,13 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <FavoritesContextProvider>
+        <FavouritesContextProvider>
           <LocationContextProvider>
             <RestaurantsContextProvider>
               <Navigation />
             </RestaurantsContextProvider>
           </LocationContextProvider>
-        </FavoritesContextProvider>
+        </FavouritesContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
