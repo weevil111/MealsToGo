@@ -12,13 +12,14 @@ export const AuthenticationContextProvider = ({ children }) => {
     setIsLoading(true);
     loginRequest(email, password)
       .then((userData) => setUser(userData))
-      .catch((e) => setError(e))
+      .catch((e) => setError(e.toString()))
       .finally(() => setIsLoading(false));
   };
 
   return (
     <AuthenticationContext.Provider
       value={{
+        isAuthenticated: !!user,
         user,
         isLoading,
         error,
