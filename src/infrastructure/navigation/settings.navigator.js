@@ -6,14 +6,15 @@ import {
   createStackNavigator,
   CardStyleInterpolators,
 } from "@react-navigation/stack";
+import { CameraScreen } from "../../features/settings/screens/camera.screen";
 
 const SettingsStack = createStackNavigator();
 
 export const SettingsNavigator = ({ route, navigation }) => {
   return (
     <SettingsStack.Navigator
-      headerMode="screen"
       screenOptions={{
+        headerMode: "screen",
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}
     >
@@ -21,10 +22,11 @@ export const SettingsNavigator = ({ route, navigation }) => {
         options={{
           header: () => null,
         }}
-        name="Settings"
+        name="SettingsMain"
         component={SettingsScreen}
       />
       <SettingsStack.Screen name="Favourites" component={FavouritesScreen} />
+      <SettingsStack.Screen name="Camera" component={CameraScreen} />
     </SettingsStack.Navigator>
   );
 };
