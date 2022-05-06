@@ -20,7 +20,10 @@ export const LocationContextProvider = ({ children }) => {
     }
     locationRequest(keyword.toLowerCase())
       .then(locationTransform)
-      .then((result) => setLocation(result))
+      .then((result) => {
+        setError(null);
+        setLocation(result);
+      })
       .catch((err) => setError(err.toString()))
       .finally(() => setIsLoading(true));
   }, [keyword]);
