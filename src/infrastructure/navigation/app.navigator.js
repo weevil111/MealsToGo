@@ -10,6 +10,7 @@ import { FavouritesContextProvider } from "../../services/favourites/favourites.
 import { LocationContextProvider } from "../../services/location/location.context";
 import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
 import { CartContextProvider } from "../../services/cart/cart.context";
+import { colors } from "../../infrastructure/theme/colors";
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
@@ -24,8 +25,8 @@ const navigatorScreenOptions = ({ route }) => ({
     const iconName = TAB_ICON[route.name];
     return <Ionicons name={iconName} size={size} color={color} />;
   },
-  tabBarActiveTintColor: "tomato",
-  tabBarInactiveTintColor: "gray",
+  activeTintColor: colors.brand.primary,
+  inactiveTintColor: colors.brand.muted,
   headerShown: false,
 });
 
