@@ -71,8 +71,10 @@ export const CheckoutScreen = ({ navigation }) => {
             <Text>Your Order</Text>
           </Spacer>
           <List.Section>
-            {cart.map(({ item, price }) => {
-              return <List.Item title={`${item} - ${price / 100}`} />;
+            {cart.map(({ item, price }, index) => {
+              return (
+                <List.Item key={index} title={`${item} - ${price / 100}`} />
+              );
             })}
           </List.Section>
           <Text>Total: {sum / 100}</Text>
